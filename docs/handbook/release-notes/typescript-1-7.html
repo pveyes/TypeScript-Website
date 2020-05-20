@@ -1,0 +1,1155 @@
+<!DOCTYPE html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us" lang="en">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      TypeScript 1.7 &middot; TypeScript
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/vendor.91c84422.css">
+
+  <link rel="stylesheet" href="/assets/css/style.min.e3093056.css">
+
+  <!-- Icons --> <!-- TODO: Check that these all wok -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/icons/manifest.json">
+  <link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/assets/images/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- JS -->
+  <script src="/assets/js/vendors.4960e48a.js"></script>
+
+  <!-- JS -->
+  <script src="/assets/js/all.min.0df14029.js"></script>
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Application Insights in Azure -->
+  <script type="text/javascript">
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.async = true;n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}({ instrumentationKey: "78a8fb52-a225-4c66-ac08-92fad1c1ade1" });window[aiName]=aisdk
+    if (aisdk.queue && 0 === aisdk.queue.length) {
+        const locationWithoutPlaygroundCode = document.location.href.split("#code")[0].split("#src")[0]
+        const referrerWithoutPlaygroundCode = document.referrer && document.referrer.split("#code")[0].split("#src")[0]
+        aisdk.trackPageView({ uri: locationWithoutPlaygroundCode, refUri: referrerWithoutPlaygroundCode });
+    }
+  </script>
+
+  <!-- Search -->
+  <link rel="stylesheet" href="/assets/stylesheets/docsearch.css" />
+
+</head>
+
+<body>
+	<a href="#main-content" class="main-content-skip" tabindex="0">
+    Skip to main content
+</a>
+    <header role="banner">
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+         <div class="container-fluid">
+            <!-- Contains the logo and a toggle button for smaller screen sizes. -->
+            <div class="navbar-header">
+              <!-- Toggles the visibility of the nav area on smaller screen sizes. -->
+              <button type="button" class="navbar-toggle pull-left collapsed" data-toggle="collapse" data-target="#navbar-collapse-div">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <!-- Top-left logo. -->
+              <a class="navbar-brand" href="/index.html" aria-label="TypeScript Home Page">
+                <img class="navbar-logo" src="/assets/images/logo_nocircle.svg" alt="TypeScript logo"/>
+              </a>
+            </div>
+
+            <!-- The navigation items. -->
+            <div class="collapse navbar-collapse centered-navbar" id="navbar-collapse-div">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/docs/index.html">Documentation </a></li>
+                <li><a href="/index.html#download-links">Download</a></li>
+                <li class=""><a href="/community/index.html">Connect</a></li>
+                <li class=""><a href="/play/index.html">Playground</a></li>
+              </ul>
+
+              <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                  <input type="search" class="form-control site-search" placeholder="Search">
+                </div>
+              </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+	<div class="container-fluid update-banner">
+	<div class="container">
+		TypeScript <a href="/docs/handbook/release-notes/typescript-3-9.html">3.9</a> is now available. <a href="/#download-links" aria-label="Download the latest version of TypeScript">Get</a> the latest version today!
+	</div>
+</div>
+
+	<main id="main-content" class="content">
+		<div id="doc-content" class="container-fluid fill docs-container">
+        <a id='try-beta' style="display:none;">Try v2 Beta Page</a>
+        <script>
+          const tryBeta = document.getElementById("try-beta")
+          const mobile = window.outerWidth < 800
+          const isHome = document.location.pathname === "/docs/home.html"
+          if (!isHome) {
+            tryBeta.style.display = "block";
+
+            tryBeta.onclick = () => {
+              document.location  = "https://www.staging-typescript.org/" + document.location.pathname
+            }
+          }
+        </script>
+        <div class="container">
+
+        <div class="col-md-2 toc-container hidden-xs hidden-sm">
+          <nav class="docs-nav visible-md visible-lg affix-top" id="docs-navbar">
+  <ul class="nav" id="main-nav">
+    
+    <li class="panel"><a class="docs-home" href="/docs/home.html">Documentation</a></li>    					
+
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-tutorials" data-toggle="collapse" data-parent="#main-nav">Tutorials</a>         
+        <ul class="collapse" id="toc-tutorials" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/typescript-in-5-minutes.html>TypeScript in 5 minutes</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/asp-net-core.html>ASP.NET Core</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/gulp.html>Gulp</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/migrating-from-javascript.html>Migrating from JavaScript</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/react-&-webpack.html>React & Webpack</a>
+                </li>
+            
+        </ul>
+    </li>
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-whats-new" data-toggle="collapse" data-parent="#main-nav">What's New</a>         
+        <ul class="collapse" id="toc-whats-new" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/overview.html>Overview</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-9.html>TypeScript 3.9</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-8.html>TypeScript 3.8</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-7.html>TypeScript 3.7</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-6.html>TypeScript 3.6</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-5.html>TypeScript 3.5</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-4.html>TypeScript 3.4</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-3.html>TypeScript 3.3</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-2.html>TypeScript 3.2</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-1.html>TypeScript 3.1</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-0.html>TypeScript 3.0</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-9.html>TypeScript 2.9</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-8.html>TypeScript 2.8</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-7.html>TypeScript 2.7</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-6.html>TypeScript 2.6</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-5.html>TypeScript 2.5</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-4.html>TypeScript 2.4</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-3.html>TypeScript 2.3</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-2.html>TypeScript 2.2</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-1.html>TypeScript 2.1</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-0.html>TypeScript 2.0</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-8.html>TypeScript 1.8</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-7.html class="active">TypeScript 1.7</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-6.html>TypeScript 1.6</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-5.html>TypeScript 1.5</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-4.html>TypeScript 1.4</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-3.html>TypeScript 1.3</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-1.html>TypeScript 1.1</a>
+                </li>
+            
+        </ul>
+    </li>
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-handbook" data-toggle="collapse" data-parent="#main-nav">Handbook</a>         
+        <ul class="collapse" id="toc-handbook" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/basic-types.html>Basic Types</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/variable-declarations.html>Variable Declarations</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/interfaces.html>Interfaces</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/classes.html>Classes</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/functions.html>Functions</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/generics.html>Generics</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/enums.html>Enums</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/type-inference.html>Type Inference</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/type-compatibility.html>Type Compatibility</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/advanced-types.html>Advanced Types</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/symbols.html>Symbols</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/iterators-and-generators.html>Iterators and Generators</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/modules.html>Modules</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/namespaces.html>Namespaces</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/namespaces-and-modules.html>Namespaces and Modules</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/module-resolution.html>Module Resolution</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-merging.html>Declaration Merging</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/jsx.html>JSX</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/decorators.html>Decorators</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/mixins.html>Mixins</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/triple-slash-directives.html>Triple-Slash Directives</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/type-checking-javascript-files.html>Type Checking JavaScript Files</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/utility-types.html>Utility Types</a>
+                </li>
+            
+        </ul>
+    </li>
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-declaration-files" data-toggle="collapse" data-parent="#main-nav">Declaration Files</a>         
+        <ul class="collapse" id="toc-declaration-files" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/introduction.html>Introduction</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/library-structures.html>Library Structures</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/by-example.html>By Example</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/do-s-and-don-ts.html>Do's and Don'ts</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/deep-dive.html>Deep Dive</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/templates.html>Templates</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/publishing.html>Publishing</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/consumption.html>Consumption</a>
+                </li>
+            
+        </ul>
+    </li>
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-project-config" data-toggle="collapse" data-parent="#main-nav">Project Configuration</a>         
+        <ul class="collapse" id="toc-project-config" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/tsconfig-json.html>tsconfig.json</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/compiler-options.html>Compiler Options</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/project-references.html>Project References</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/compiler-options-in-msbuild.html>Compiler Options in MSBuild</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/integrating-with-build-tools.html>Integrating with Build Tools</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/nightly-builds.html>Nightly Builds</a>
+                </li>
+            
+        </ul>
+    </li>
+        
+    
+	</ul>
+</nav>
+
+        </div>
+        <div class="col-md-10 col-xs-12 col-sm-12  doc-content-container">
+          <div class="xs-toc-container visible-xs visible-sm">
+            <nav class='xs-toc'>
+  <div class="toc-dropdown">
+    <a class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" href="#">
+      Documentation
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="/docs/home.html">Documentation</a>
+      </li>
+      
+      <li>
+          <ul>
+      <h2>
+        
+        
+          Tutorials
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/typescript-in-5-minutes.html>TypeScript in 5 minutes</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/asp-net-core.html>ASP.NET Core</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/gulp.html>Gulp</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/migrating-from-javascript.html>Migrating from JavaScript</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/react-&-webpack.html>React & Webpack</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+      <li>
+          <ul>
+    
+      <h2>
+        
+        
+          What's New
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/overview.html>Overview</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-9.html>TypeScript 3.9</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-8.html>TypeScript 3.8</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-7.html>TypeScript 3.7</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-6.html>TypeScript 3.6</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-5.html>TypeScript 3.5</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-4.html>TypeScript 3.4</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-3.html>TypeScript 3.3</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-2.html>TypeScript 3.2</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-1.html>TypeScript 3.1</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-0.html>TypeScript 3.0</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-9.html>TypeScript 2.9</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-8.html>TypeScript 2.8</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-7.html>TypeScript 2.7</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-6.html>TypeScript 2.6</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-5.html>TypeScript 2.5</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-4.html>TypeScript 2.4</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-3.html>TypeScript 2.3</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-2.html>TypeScript 2.2</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-1.html>TypeScript 2.1</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-0.html>TypeScript 2.0</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-8.html>TypeScript 1.8</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-7.html class="active">TypeScript 1.7</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-6.html>TypeScript 1.6</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-5.html>TypeScript 1.5</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-4.html>TypeScript 1.4</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-3.html>TypeScript 1.3</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-1.html>TypeScript 1.1</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+      <li>
+          <ul>
+    
+      <h2>
+        
+        
+          Handbook
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/basic-types.html>Basic Types</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/variable-declarations.html>Variable Declarations</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/interfaces.html>Interfaces</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/classes.html>Classes</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/functions.html>Functions</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/generics.html>Generics</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/enums.html>Enums</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/type-inference.html>Type Inference</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/type-compatibility.html>Type Compatibility</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/advanced-types.html>Advanced Types</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/symbols.html>Symbols</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/iterators-and-generators.html>Iterators and Generators</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/modules.html>Modules</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/namespaces.html>Namespaces</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/namespaces-and-modules.html>Namespaces and Modules</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/module-resolution.html>Module Resolution</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-merging.html>Declaration Merging</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/jsx.html>JSX</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/decorators.html>Decorators</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/mixins.html>Mixins</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/triple-slash-directives.html>Triple-Slash Directives</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/type-checking-javascript-files.html>Type Checking JavaScript Files</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/utility-types.html>Utility Types</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+      <li>
+          <ul>
+    
+      <h2>
+        
+        
+          Declaration Files
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/introduction.html>Introduction</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/library-structures.html>Library Structures</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/by-example.html>By Example</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/do-s-and-don-ts.html>Do's and Don'ts</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/deep-dive.html>Deep Dive</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/templates.html>Templates</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/publishing.html>Publishing</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/consumption.html>Consumption</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+      <li>
+          <ul>
+    
+      <h2>
+        
+        
+          Project Configuration
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/tsconfig-json.html>tsconfig.json</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/compiler-options.html>Compiler Options</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/project-references.html>Project References</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/compiler-options-in-msbuild.html>Compiler Options in MSBuild</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/integrating-with-build-tools.html>Integrating with Build Tools</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/nightly-builds.html>Nightly Builds</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+    </ul>
+  </div>    
+</nav>
+
+          </div>
+    <header class="post-header">
+      <h1 class="post-title">
+        
+        
+          TypeScript 1.7
+        
+        
+      </header>
+          <article class="post-content">
+              <p></p>
+    
+      <h2 id="asyncawait-support-in-es6-targets-node-v4">
+        
+        
+          <code>async</code>/<code>await</code> support in ES6 targets (Node v4+) <a aria-label="Link to the header: async/await support in ES6 targets (Node v4+)" title="Link to the header: async/await support in ES6 targets (Node v4+)" href="#asyncawait-support-in-es6-targets-node-v4" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>TypeScript now supports asynchronous functions for engines that have native support for ES6 generators, e.g. Node v4 and above.
+Asynchronous functions are prefixed with the <code>async</code> keyword;
+<code>await</code> suspends the execution until an asynchronous function return promise is fulfilled and unwraps the value from the <code>Promise</code> returned.</p>
+    
+      <h5 id="example">
+        
+        
+          Example <a aria-label="Link to the header: Example" title="Link to the header: Example" href="#example" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h5>
+
+<p>In the following example, each input element will be printed out one at a time with a 400ms delay:</p>
+
+<pre><code class="language-ts">"use strict";
+
+// printDelayed is a 'Promise&lt;void&gt;'
+async function printDelayed(elements: string[]) {
+    for (const element of elements) {
+        await delay(400);
+        console.log(element);
+    }
+}
+
+async function delay(milliseconds: number) {
+    return new Promise&lt;void&gt;(resolve =&gt; {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+printDelayed(["Hello", "beautiful", "asynchronous", "world"]).then(() =&gt; {
+    console.log();
+    console.log("Printed every element!");
+});
+</code></pre>
+
+<p>For more information see <a href="http://blogs.msdn.com/b/typescript/archive/2015/11/03/what-about-async-await.aspx">Async Functions</a> blog post.</p>
+    
+      <h2 id="support-for---target-es6-with---module">
+        
+        
+          Support for <code>--target ES6</code> with <code>--module</code> <a aria-label="Link to the header: Support for --target ES6 with --module" title="Link to the header: Support for --target ES6 with --module" href="#support-for---target-es6-with---module" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>TypeScript 1.7 adds <code>ES6</code> to the list of options available for the <code>--module</code> flag and allows you to specify the module output when targeting <code>ES6</code>.
+This provides more flexibility to target exactly the features you want in specific runtimes.</p>
+    
+      <h5 id="example-1">
+        
+        
+          Example <a aria-label="Link to the header: Example" title="Link to the header: Example" href="#example-1" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h5>
+
+<pre><code class="language-json">{
+    "compilerOptions": {
+        "module": "amd",
+        "target": "es6"
+    }
+}
+</code></pre>
+    
+      <h2 id="this-typing">
+        
+        
+          <code>this</code>-typing <a aria-label="Link to the header: this-typing" title="Link to the header: this-typing" href="#this-typing" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>It is a common pattern to return the current object (i.e. <code>this</code>) from a method to create <a href="https://en.wikipedia.org/wiki/Fluent_interface">fluent-style APIs</a>.
+For instance, consider the following <code>BasicCalculator</code> module:</p>
+
+<pre><code class="language-ts">export default class BasicCalculator {
+    public constructor(protected value: number = 0) { }
+
+    public currentValue(): number {
+        return this.value;
+    }
+
+    public add(operand: number) {
+        this.value += operand;
+        return this;
+    }
+
+    public subtract(operand: number) {
+        this.value -= operand;
+        return this;
+    }
+
+    public multiply(operand: number) {
+        this.value *= operand;
+        return this;
+    }
+
+    public divide(operand: number) {
+        this.value /= operand;
+        return this;
+    }
+}
+</code></pre>
+
+<p>A user could express <code>2 * 5 + 1</code> as</p>
+
+<pre><code class="language-ts">import calc from "./BasicCalculator";
+
+let v = new calc(2)
+    .multiply(5)
+    .add(1)
+    .currentValue();
+</code></pre>
+
+<p>This often opens up very elegant ways of writing code; however, there was a problem for classes that wanted to extend from <code>BasicCalculator</code>.
+Imagine a user wanted to start writing a <code>ScientificCalculator</code>:</p>
+
+<pre><code class="language-ts">import BasicCalculator from "./BasicCalculator";
+
+export default class ScientificCalculator extends BasicCalculator {
+    public constructor(value = 0) {
+        super(value);
+    }
+
+    public square() {
+        this.value = this.value ** 2;
+        return this;
+    }
+
+    public sin() {
+        this.value = Math.sin(this.value);
+        return this;
+    }
+}
+</code></pre>
+
+<p>Because TypeScript used to infer the type <code>BasicCalculator</code> for each method in <code>BasicCalculator</code> that returned <code>this</code>, the type system would forget that it had <code>ScientificCalculator</code> whenever using a <code>BasicCalculator</code> method.</p>
+
+<p>For instance:</p>
+
+<pre><code class="language-ts">import calc from "./ScientificCalculator";
+
+let v = new calc(0.5)
+    .square()
+    .divide(2)
+    .sin()    // Error: 'BasicCalculator' has no 'sin' method.
+    .currentValue();
+</code></pre>
+
+<p>This is no longer the case - TypeScript now infers <code>this</code> to have a special type called <code>this</code> whenever inside an instance method of a class.
+The <code>this</code> type is written as so, and basically means “the type of the left side of the dot in a method call”.</p>
+
+<p>The <code>this</code> type is also useful with intersection types in describing libraries (e.g. Ember.js) that use mixin-style patterns to describe inheritance:</p>
+
+<pre><code class="language-ts">interface MyType {
+    extend&lt;T&gt;(other: T): this &amp; T;
+}
+</code></pre>
+    
+      <h2 id="es7-exponentiation-operator">
+        
+        
+          ES7 exponentiation operator <a aria-label="Link to the header: ES7 exponentiation operator" title="Link to the header: ES7 exponentiation operator" href="#es7-exponentiation-operator" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>TypeScript 1.7 supports upcoming <a href="https://github.com/rwaldron/exponentiation-operator">ES7/ES2016 exponentiation operators</a>: <code>**</code> and <code>**=</code>.
+The operators will be transformed in the output to ES3/ES5 using <code>Math.pow</code>.</p>
+    
+      <h5 id="example-2">
+        
+        
+          Example <a aria-label="Link to the header: Example" title="Link to the header: Example" href="#example-2" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h5>
+
+<pre><code class="language-ts">var x = 2 ** 3;
+var y = 10;
+y **= 2;
+var z =  -(4 ** 3);
+</code></pre>
+
+<p>Will generate the following JavaScript output:</p>
+
+<pre><code class="language-js">var x = Math.pow(2, 3);
+var y = 10;
+y = Math.pow(y, 2);
+var z = -(Math.pow(4, 3));
+</code></pre>
+    
+      <h2 id="improved-checking-for-destructuring-object-literal">
+        
+        
+          Improved checking for destructuring object literal <a aria-label="Link to the header: Improved checking for destructuring object literal" title="Link to the header: Improved checking for destructuring object literal" href="#improved-checking-for-destructuring-object-literal" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>TypeScript 1.7 makes checking of destructuring patterns with an object literal or array literal initializers less rigid and more intuitive.</p>
+
+<p>When an object literal is contextually typed by the implied type of an object binding pattern:</p>
+
+<ul>
+  <li>Properties with default values in the object binding pattern become optional in the object literal.</li>
+  <li>Properties in the object binding pattern that have no match in the object literal are required to have a default value in the object binding pattern and are automatically added to the object literal type.</li>
+  <li>Properties in the object literal that have no match in the object binding pattern are an error.</li>
+</ul>
+
+<p>When an array literal is contextually typed by the implied type of an array binding pattern:</p>
+
+<ul>
+  <li>Elements in the array binding pattern that have no match in the array literal are required to have a default value in the array binding pattern and are automatically added to the array literal type.</li>
+</ul>
+    
+      <h5 id="example-3">
+        
+        
+          Example <a aria-label="Link to the header: Example" title="Link to the header: Example" href="#example-3" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h5>
+
+<pre><code class="language-ts">// Type of f1 is (arg?: { x?: number, y?: number }) =&gt; void
+function f1({ x = 0, y = 0 } = {}) { }
+
+// And can be called as:
+f1();
+f1({});
+f1({ x: 1 });
+f1({ y: 1 });
+f1({ x: 1, y: 1 });
+
+// Type of f2 is (arg?: (x: number, y?: number) =&gt; void
+function f2({ x, y = 0 } = { x: 0 }) { }
+
+f2();
+f2({});        // Error, x not optional
+f2({ x: 1 });
+f2({ y: 1 });  // Error, x not optional
+f2({ x: 1, y: 1 });
+</code></pre>
+    
+      <h2 id="support-for-decorators-when-targeting-es3">
+        
+        
+          Support for decorators when targeting ES3 <a aria-label="Link to the header: Support for decorators when targeting ES3" title="Link to the header: Support for decorators when targeting ES3" href="#support-for-decorators-when-targeting-es3" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>Decorators are now allowed when targeting ES3.
+TypeScript 1.7 removes the ES5-specific use of <code>reduceRight</code> from the <code>__decorate</code> helper.
+The changes also inline calls <code>Object.getOwnPropertyDescriptor</code> and <code>Object.defineProperty</code> in a backwards-compatible fashion that allows for a to clean up the emit for ES5 and later by removing various repetitive calls to the aforementioned <code>Object</code> methods.</p>
+
+
+          </article>
+        </div>
+        </div>
+    </a>
+
+<script type="text/javascript">
+
+      $(function() {
+        //$(".tocAccordion").accordion();
+        setDocTOC();
+        hljs.initHighlightingOnLoad();
+      });
+
+</script>
+
+	</main>
+	<footer role="contentinfo">
+    <div class="container-fluid signature-container">
+        <div class="container">
+            <div class="row signature">
+                <div class="col-sm-7 col-xs-12">
+                    <p class="pull-left">Made with <span class="glyphicon glyphicon-heart"></span> in Redmond</p>
+                    <div class="twitter-buttons pull-left">
+                        <a class="twitter-follow-button" href="https://twitter.com/typescript/">Follow @typescript</a>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <img class="ms-logo-footer pull-right" src="/assets/images/Microsoft-logo_rgb_c-gray.svg" alt="Microsoft logo"/>
+                    <p class="copyright pull-right">&copy;2012-2020 Microsoft</p>
+                    <p class="privacy pull-right"><a href="https://go.microsoft.com/fwlink/?LinkId=521839" data-mscc-ic="false">Privacy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+<!-- JS -->
+<script src="/assets/js/libraries.5f479ded.js"></script>
+<!-- at the end of the BODY -->
+
+<script type="text/javascript">
+docsearch({
+  apiKey: '3c2db2aef0c7ff26e8911267474a9b2c',
+  indexName: 'typescriptlang',
+  inputSelector: '.site-search',
+  debug: true // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</html>

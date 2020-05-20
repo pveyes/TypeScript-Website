@@ -1,0 +1,485 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font: normal 16px/1.4em -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+body p,
+body span,
+body ul li,
+body ol li {
+  font-size: 1em;
+  line-height: 1em;
+}
+
+.navbar p {
+  line-height: 1.5em;
+}
+
+subheader {
+  display: flex;
+  background-color: #ddd;
+  color: black;
+  margin-top: 52px;
+  padding-top: 8px;
+  font-size: 16px;
+}
+
+subheader a {
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#playground {
+  display: flex;
+  flex: 1;
+  margin-top: 10px;
+}
+
+#input {
+  flex: 1;
+  width: 50%;
+}
+
+#output {
+  flex: 1;
+  width: 50%;
+}
+
+#version {
+  transition: opacity 0.3s;
+  margin-left: 0.3em;
+  width: 3em;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  left: -0.5em;
+  z-index: 100;
+  background-color: #ddd;
+  color: black;
+  font-size: 80%;
+  padding: 1em;
+}
+
+.buttons {
+  padding: 0;
+}
+
+.popup ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.popup li {
+  padding: 0.6em 0;
+  margin-right: 0.2em;
+}
+
+.versions li {
+  width: 60px;
+}
+
+.popup.buttons li.button {
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.popup li:hover {
+  background-color: #bbb;
+  /* margin-left:4px; */
+}
+
+.popup-on-hover {
+  position: relative;
+}
+
+.popup-on-hover:hover .popup, .popup-on-hover:focus-within .popup {
+  display: inline-block;
+}
+
+.popup-on-hover:hover .popup-header, .popup-on-hover:focus-within .popup-header {
+  text-decoration: underline;
+  color: #294E80;
+
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.header-item {
+  margin-left: 1em;
+  margin-left: 1em;
+}
+
+.header-item label input {
+  margin-right: 8px;
+}
+
+.header-item--extra-padding {
+  margin-left: 0;
+  padding-right: 1em;
+}
+
+.compact-list li {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+.spinner {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 0.25rem solid white;
+  border-bottom: 0.25rem solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+
+  opacity: 1;
+  transition: 0.3s opacity;
+}
+
+.spinner--hidden {
+  opacity: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.select-label {
+  display: inline-block;
+  width: 3em;
+}
+
+.select select {
+  display: inline-block;
+  width: 7em;
+  margin-left: 1em;
+}
+
+.flash {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 42;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.flash__message {
+  border-radius: 1.5em;
+  padding: 1em 2em;
+  background-color: black;
+  color: white;
+  opacity: 0.7;
+  transition: opacity 0.1s ease-in-out;
+
+  /* help Safari with blurred text */
+  transform: translateZ(0);
+}
+
+.flash--hidden .flash__message {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#settings-popup {
+  overflow-y: auto;
+  max-height: calc(100vh - 5rem);
+}
+
+label {
+  font-weight: normal;
+  padding-bottom: 5px;
+  margin-bottom: 0;
+  padding-left: 5px;
+}
+
+.monaco-editor-hover {
+  z-index: 2000 !important;
+}
+
+.examples {
+  width: 800px;
+  padding: 20px;
+}
+
+.navbar-sub {
+  margin-bottom: 0px;
+}
+
+.navbar-sub .navbar-nav > li {
+  float: left;
+}
+
+.navbar-sub .dropdown-menu {
+  color: black;
+}
+
+.navbar-sub .dropdown.open .dropdown-menu {
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}
+
+@media only screen and (max-width: 767px) {
+  /* Makes the subnav fit one line on mobile */
+  .navbar-sub .navbar-nav > li {
+    font-size: 0.9em;
+  }
+}
+
+.navbar-sub div.info {
+  color: black;
+  padding: 20px;
+  width: 320px;
+}
+
+/* JS / TS selector */
+.examples > ol {
+  display: flex;
+  padding-left: 0;
+}
+
+.examples ol {
+  list-style: none;
+  padding-right: 20px;
+  padding-left: 0;
+}
+
+
+.examples > div {
+  flex-wrap: wrap;
+}
+
+.examples > ol li {
+  display: inline-block;
+  padding:0;
+  margin-bottom: 20px;
+}
+
+.examples > ol button.section-name {
+  font-size: 2em;
+  height: 2em;
+  text-decoration: none;
+  border-bottom: none;
+  padding-bottom:0.05em;
+  padding-left: 0;
+  margin-right: 1em;
+  border: none;
+  background-color: transparent;
+}
+
+.examples > ol li:hover {
+ background-color: transparent;
+}
+
+.examples > ol button.section-name.selected {
+  border-bottom: #187ABF 2px solid;
+}
+
+/* Block of sections */
+.examples > div .section-list {
+  width: 240px;
+  margin-top: 2em;
+}
+
+.examples > div .section-list ol li {
+  padding: 0;
+  /*
+  So that the example indicators will use
+  this for positioning absolutely  */
+  position: relative;
+}
+
+.examples > div .section-list ol li a.highlight {
+  border-left: #187ABF 2px solid;
+  padding-left: 8px;
+}
+
+
+.examples > div .section-list ol li a {
+  display: block;
+  padding: 8px;
+  padding-left: 10px;
+  margin-left: -8px;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.examples > div .section-list ol li a:hover {
+  color: black;
+}
+
+.example-indicator {
+  position: absolute;
+  right: 0.8em;
+  top: 0.75em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.5em;
+}
+
+.example-indicator.done {
+  background-color: #187ABF;
+}
+
+.example-indicator.changed {
+  border: #187ABF 1px solid;
+}
+
+#config ul {
+  padding: 0;
+}
+
+#config li {
+  list-style: none;
+}
+
+#config input {
+  margin-right: 8px;
+}
+
+.navbar-sub {
+  border-bottom: 1px solid #294E80;
+  border-radius: 0;
+}
+
+
+.lds-circle {
+  display: inline-block;
+  transform: translateZ(1px);
+}
+.lds-circle > div {
+  display: inline-block;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border-radius: 50%;
+  background: #3771EF;
+  animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes lds-circle {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
+#loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+#popover-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#popover-modal {
+  width: 80%;
+  height: 70%;
+  position: fixed;
+  padding: 20px;
+  background-color: white;
+  /* https://stackoverflow.com/questions/2005954/center-a-positionfixed-element */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#popover-modal pre {
+  max-height: 90%;
+  overflow: scroll;;
+}
+
+/* Adds a tickbox to the selected theme */
+
+.current-theme:before {
+  /* prepend check mark */
+  content: "\2713  ";
+}
+
+.current-theme {
+  margin-left: -1em;
+}
+
+body.dark {
+  background-color: #1e1e1e;
+}
+
+body.dark .nav a {
+  color: white;
+}
+
+body.dark .dropdown-menu {
+  background-color: black;
+  color: white;
+}
+
+body.dark .select select {
+  color: black;
+}
+
+body.dark .navbar-sub div.info {
+  color: white;
+}
+
+body.dark .examples > div .section-list ol li a:hover {
+  color: #187ABF;
+}
+
+body.dark .nav>li>a:focus, body.dark .nav>li>a:hover {
+  background-color: #4e4e4e;
+}
+
+body.dark .dropdown-menu>li>a:focus, body.dark .dropdown-menu>li>a:hover {
+  background-color: #4e4e4e;
+}
+
+body.dark .nav .open>a, body.dark .nav .open>a:focus, body.dark .nav .open>a:hover {
+  background-color: #4e4e4e;
+}
+
+body.dark.hc {
+  background-color: black;
+}

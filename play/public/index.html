@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TypeScript Playground</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style-3.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style type="text/css">
+
+
+body {
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  min-height: 100%; }
+  body .content {
+    -ms-flex: 1;
+        flex: 1; }
+
+@media (max-width: 767px) {
+
+  .navbar-logo {
+    height: 1.8em !important;
+    margin-left: -0.5em !important;
+    margin-top: 0.6em !important; }
+  .fork-me-ribbon {
+    display: none; }
+  .update-banner {
+    padding: 3em 3em 1em 3em !important;
+    font-size: 1.1em; }
+  .centered-navbar > ul.navbar-right {
+    display: none;
+  } }
+
+@media (min-width: 768px) {
+
+  .navbar-brand {
+    top: 5px;
+    left: 15px;
+    position: absolute; }
+  .update-banner {
+    padding: 1.6em !important;
+    font-size: 1.1em;
+    padding-bottom: 1em !important;
+    height: 4.4em !important; }
+}
+
+@media (min-width: 992px) {
+
+  .update-banner {
+    padding: 1.2em !important;
+    height: 4.2em !important; } }
+
+@media (min-width: 1200px) {
+  .update-banner {
+    padding: .9em !important;
+    height: 4em !important; } }
+
+h1 {
+  color: #152740;
+  font-size: 3.6em; }
+
+p, span, ul li, ol li {
+  font-size: 1.6em;
+  line-height: 1.6em; }
+
+ul li ul li, ol li ol li {
+  font-size: 1em; }
+
+a {
+  color: #265988; }
+
+blockquote {
+  font-size: 1em; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+.light-theme {
+  color: black; }
+
+/* centered columns styles */
+.row-centered {
+  text-align: center; }
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px; }
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: left; }
+
+/* Buttons */
+.btn {
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.25); }
+
+.main-content-skip {
+  width: 100%;
+  height: 0px;
+  text-align: center; }
+  .main-content-skip:focus {
+    color: #fff;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    z-index: 99999;
+    font-size: 1.6em;
+    line-height: 0;
+    padding: 3.2em; }
+
+/* NAVBAR */
+.navbar-default {
+  background-color: #294E80;
+  border: 0px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25); }
+  .navbar-default p, .navbar-default span, .navbar-default li {
+    font-size: 1.4rem; }
+
+/*@media all and (min-width:1200px)*/
+.centered-navbar > ul {
+  display: inline-block;
+  float: none; }
+
+/*@media all and (min-width:1200px)*/
+.centered-navbar {
+  text-align: center;
+  margin-bottom: -3px;
+  box-shadow: none;
+  border: none; }
+
+.navbar-toggle {
+  margin-left: 10px; }
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white; }
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  font-size: 1.4rem;
+  margin-left: .5em; }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: white; }
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: white;
+  background-color: #283a62; }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #8c6b2b; }
+
+.navbar-nav {
+  color: white; }
+
+.navbar-brand {
+  padding: 0;
+  margin: 0; }
+  @media screen and (-ms-high-contrast: black-on-white) {
+    .navbar-brand {
+      -ms-high-contrast-adjust: none;
+      background-color: #294E80 !important; } }
+
+.navbar-logo {
+  width: 7.5em;
+  height: 1.6em;
+  margin-left: 0.5em;
+  margin-top: 0.4em; }
+
+#ellipses_btn {
+  margin: -15px;
+  display: inline-block;
+  width: 5em;
+  height: 100%; }
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: #243A61; }
+
+.high-contrast-only {
+  display: none; }
+
+@media screen and (-ms-high-contrast: active) {
+  .high-contrast-only {
+    display: inherit; } }
+
+.navbar-default .navbar-toggle {
+  border: none; }
+    </style>
+  </head>
+
+  <body>
+    <script src="https://unpkg.com/url-search-params@1.1.0/build/url-search-params.js"></script>
+    <script src="https://unpkg.com/clipboard-polyfill@2.4.7/build/clipboard-polyfill.js"></script>
+    <script src="https://unpkg.com/monaco-editor@0.15.6/min/vs/loader.js"></script>
+      <!-- Application Insights in Azure -->
+    <script type="text/javascript">
+      var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.async = true;n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}({ instrumentationKey: "78a8fb52-a225-4c66-ac08-92fad1c1ade1" });window[aiName]=aisdk
+      if (aisdk.queue&&0===aisdk.queue.length) {
+         const locationWithoutPlaygroundCode = document.location.href.split("#code")[0].split("#src")[0]
+         const referrerWithoutPlaygroundCode = document.referrer && document.referrer.split("#code")[0].split("#src")[0]
+         aisdk.trackPageView({ uri: locationWithoutPlaygroundCode, refUri: referrerWithoutPlaygroundCode, pageType: "playground" });
+      }
+    </script>
+
+    <script>
+      const params = new URLSearchParams(location.search);
+
+      window.CONFIG = {
+        availableTSVersions: Object.assign(
+          {
+            // https://unpkg.com/monaco-editor/
+            // The TS version is bundled inside monaco-editor, so this config file maps
+            // the version of TS to a specific build of monaco-editor which runs with
+            // that TS version embedded
+            //
+            // For builds which go to typescript-deploys/monaco-editor
+            // see https://github.com/orta/make-monaco-builds
+            //
+            "Nightly": { monaco: "next", module: "@typescript-deploys/monaco-editor" },
+            "3.9.2": { monaco: "3.9.2", module: "@typescript-deploys/monaco-editor" },
+            "3.8.3": { monaco: "3.8.3", module: "@typescript-deploys/monaco-editor" },
+            "3.7.5": { monaco: "3.7.5", module: "@typescript-deploys/monaco-editor" },
+            "3.8-Beta": { monaco: "3.8.0-beta", module: "@typescript-deploys/monaco-editor",  hide: true },
+            // Don't break old links, but re-direct them to prod, but don't show this in the menus
+            "3.7-Beta": { monaco: "3.7.2", module: "@typescript-deploys/monaco-editor", hide: true },
+            "3.6.3": { monaco: "0.18.1", module: "monaco-editor" },
+            "3.5.1": { monaco: "0.17.1", module: "monaco-editor"},
+            "3.3.3": { monaco: "0.16.1", module: "monaco-editor"},
+            "3.1.6": { monaco: "0.15.6", module: "monaco-editor"},
+            "3.0.1": { monaco: "0.14.3", module: "monaco-editor"},
+            "2.8.1": { monaco: "0.13.1", module: "monaco-editor"},
+            "2.7.2": { monaco: "0.11.1", module: "monaco-editor"},
+            "2.4.1": { monaco: "0.10.0", module: "monaco-editor"},
+          },
+          {},
+        ),
+        extraLibs: params.has("lib") ? params.get("lib").split(",") : [],
+        useJavaScript: params.has("useJavaScript"),
+        baseUrl: location.protocol + "//" + location.host + location.pathname,
+        siteRoot: location.protocol + "//" + location.host,
+        getLatestVersion() {
+          return Object.keys(this.availableTSVersions)
+            .filter(key => key !== "Nightly" && !key.includes("-"))
+            .sort()
+            .pop();
+        },
+
+        useTSVersion(version) {
+          this.TSVersion = version
+        },
+
+        getMonacoModule() {
+          const version = this.availableTSVersions[this.TSVersion]
+          return version ? version.module :  "@typescript-deploys/monaco-editor";
+        },
+
+        getMonacoVersion() {
+          const version =  this.availableTSVersions[this.TSVersion];
+          return version ? version.monaco : params.get("ts");
+        },
+
+        getAdditionalPaths() {
+          const version =  this.availableTSVersions[this.TSVersion];
+          if (!version) return {}
+
+          const lib = this.availableTSVersions[this.TSVersion].lib;
+
+          return lib
+            ? {
+                "vs/language/typescript": `${this.baseUrl}${lib}`,
+              }
+            : {};
+        },
+      };
+
+      window.CONFIG.TSVersion = window.CONFIG.getLatestVersion();
+      console.log("window.CONFIG", window.CONFIG);
+
+      if (params.has("ts")) {
+        window.CONFIG.useTSVersion(params.get("ts"));
+      }
+
+      require.config({
+        paths: Object.assign(
+          {
+            vs: `https://unpkg.com/${window.CONFIG.getMonacoModule()}@${window.CONFIG.getMonacoVersion()}/min/vs`,
+          },
+          window.CONFIG.getAdditionalPaths(),
+        ),
+        ignoreDuplicateModules: ["vs/editor/editor.main"],
+      });
+    </script>
+
+    <header role="banner">
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+             <div class="container-fluid">
+                <!-- Contains the logo and a toggle button for smaller screen sizes. -->
+                <div class="navbar-header">
+                  <!-- Toggles the visibility of the nav area on smaller screen sizes. -->
+                  <button type="button" class="navbar-toggle pull-left collapsed" data-toggle="collapse" data-target="#navbar-collapse-div">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+
+                  <!-- Top-left logo. -->
+                  <a class="navbar-brand" href="/index.html" aria-label="TypeScript Home Page">
+                    <img class="navbar-logo" src="/assets/images/logo_nocircle.svg" alt="TypeScript logo">
+                  </a>
+                </div>
+
+                <!-- The navigation items. -->
+                <div class="collapse navbar-collapse centered-navbar" id="navbar-collapse-div">
+                  <ul class="nav navbar-nav">
+                    <li class=""><a href="/docs/index.html">Documentation</a></li>
+                    <li><a href="/index.html#download-links">Download</a></li>
+                    <li class=""><a href="/community/index.html">Connect</a></li>
+                    <li class="active"><a href="/play/index.html">Playground</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a id="playground-v3-link">Try Playground v3 beta</a></li>
+                  </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+      <div class="flash flash--hidden">
+        <span class="flash__message"></span>
+      </div>
+
+      <nav class="navbar navbar-sub" style="margin-top: 50px;">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li  class="dropdown version">
+                <a id="active-version" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Version...</a>
+                <ul class="dropdown-menu" id="versions">
+                  <li><a href="#">Loading...</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Config <span class="caret"></span></a>
+                  <ul class="dropdown-menu" >
+                      <div class="info" id="config"></div>
+                  </ul>
+                </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Examples <span class="caret"></span></a>
+                <ul class="dropdown-menu examples" id="examples" >
+                  <li><a href="#">Loading Examples...</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">What's new <span class="caret"></span></a>
+                <ul class="dropdown-menu examples" id="whatisnew">
+                  <li><a href="#">Loading Examples...</a></li>
+                </ul>
+              </li>
+
+              <li class="hidden-xs"><a href="#" id="run">Run</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right hidden-xs">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Export <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a id="export-create-gh-issue" href="#" onclick="exporter.reportIssue()">Report GitHub issue on TypeScript</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a id="export-copy-issue-markdown" href="#" onclick="exporter.copyAsMarkdownIssue()">Copy as Markdown Issue</a></li>
+                      <li><a id="export-copy-markdown" href="#" onclick="exporter.copyForChat()">Copy as Markdown Link</a></li>
+                      <li><a id="export-copy-markdown-preview" href="#" onclick="exporter.copyForChatWithPreview()">Copy as Markdown Link with Preview</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a id="export-copy-markdown-ast" href="#" onclick="exporter.openInTSAST()">Open in TypeScript AST Viewer</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a id="export-open-code-sandbox" href="#" onclick="exporter.openProjectInCodeSandbox()">Open in CodeSandbox</a></li>
+                      <li><a id="export-open-stackblitz"href="#" onclick="exporter.openProjectInStackBlitz()">Open in StackBlitz</a></li>
+                    </ul>
+                  </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shortcuts <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <div class="info">
+                  <script>
+                    const isMac = navigator.userAgent.indexOf("Mac OS X") != -1;
+                    const CMDCtrl = isMac ? "⌘ command" : "Ctrl";
+                    const OptionAlt = isMac ? "⌥ option" : "Alt";
+                    const Enter = isMac ? "return" : "⏎ Enter";
+                    const Shift = isMac ? "shift" : "⇧ Shift";
+
+                    document.write(`<p>Use <kbd>${CMDCtrl}</kbd> + <kbd>${Enter}</kbd> to run compiled JavaScript in the browser console.</p>`);
+                    document.write(`<p style="margin-top: 2em;">Use <kbd>${CMDCtrl}</kbd> + <kbd>S</kbd> to copy code url to the clipboard.</p>`);
+                    document.write(`<p style="margin-top: 2em;">Use <kbd>${OptionAlt}</kbd> + <kbd>${Shift}</kbd> + <kbd>F</kbd> to format your code.</p>`);
+                  </script>
+                  </div>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Theme <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a id="theme-light" href="#" onclick="setEditorTheme('light')">Light</a></li>
+                  <li><a id="theme-dark" href="#" onclick="setEditorTheme('dark')">Dark</a></li>
+                  <li><a id="theme-dark-hc" href="#" onclick="setEditorTheme('dark-hc')">Dark (High Contrast)</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <div class="info">
+                    <p>
+                      TypeScript is a typed superset of JavaScript that compiles to
+                      plain JavaScript.
+                    </p>
+
+                    <p style="margin-top: 2em;">
+                      Playground allows you to compile TypeScript and see JavaScript
+                      output, as well as inspect how your code works in editors like VS Code
+                    </p>
+
+                    <p style="margin-top: 2em;">
+                      This version contains a <em>beta version</em> of type acquisition powered by <a href="https://algolia.com">Algolia</a>,
+                      which will try to download types used by <code>import</code>`s in your code. It's not 100% comprehensive, but
+                      it should cover most use cases.
+                    </p>
+
+                    <p style="margin-top: 2em;">
+                      Adapted from <a href="https://github.com/agentcooper/typescript-play">agentcooper/typescript-play</a> with
+                      code viewable at <a href="https://github.com/orta/typescript-play/tree/old-site-integration">orta/typescript-play</a>.
+                    </p>
+                  </div>
+                </ul>
+              </li>
+            </ul>
+
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <div id="loading">
+        <div class="lds-circle"><div></div></div>
+        <p>Loading</p>
+      </div>
+
+      <main id="playground">
+        <section id="input"></section>
+        <section id="output" class="hidden-xs"></section>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js"></script>
+    <script src="main-3.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+      require(["vs/editor/editor.main"], main);
+
+      // Lets you click inside the config dropdown and not have it lose focus
+      $('#config').on('click', function(e) {
+        e.stopPropagation();
+      });
+
+      $('#playground-v3-link').on('click', function(e) {
+        e.stopPropagation();
+        document.location = "http://www.staging-typescript.org/play" + document.location.search + document.location.hash || ""
+      });
+
+      // So that the CSS for a theme is applied before monaco is loaded
+      const theme = localStorage.getItem("editor-theme")
+      // So dark and dark-hc can share CSS
+      if (theme === "dark-hc") {
+          document.body.classList.add("dark")
+          document.body.classList.add("hc")
+        } else {
+          document.body.classList.add(theme)
+      }
+
+    </script>
+
+
+
+  </body>
+</html>

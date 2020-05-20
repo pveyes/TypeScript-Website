@@ -1,0 +1,567 @@
+<!DOCTYPE html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us" lang="en">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Quick Start &middot; TypeScript
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/vendor.91c84422.css">
+
+  <link rel="stylesheet" href="/assets/css/style.min.e3093056.css">
+
+  <!-- Icons --> <!-- TODO: Check that these all wok -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/icons/manifest.json">
+  <link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/assets/images/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- JS -->
+  <script src="/assets/js/vendors.4960e48a.js"></script>
+
+  <!-- JS -->
+  <script src="/assets/js/all.min.0df14029.js"></script>
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Application Insights in Azure -->
+  <script type="text/javascript">
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.async = true;n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}({ instrumentationKey: "78a8fb52-a225-4c66-ac08-92fad1c1ade1" });window[aiName]=aisdk
+    if (aisdk.queue && 0 === aisdk.queue.length) {
+        const locationWithoutPlaygroundCode = document.location.href.split("#code")[0].split("#src")[0]
+        const referrerWithoutPlaygroundCode = document.referrer && document.referrer.split("#code")[0].split("#src")[0]
+        aisdk.trackPageView({ uri: locationWithoutPlaygroundCode, refUri: referrerWithoutPlaygroundCode });
+    }
+  </script>
+
+  <!-- Search -->
+  <link rel="stylesheet" href="/assets/stylesheets/docsearch.css" />
+
+</head>
+
+<body>
+	<a href="#main-content" class="main-content-skip" tabindex="0">
+    Skip to main content
+</a>
+    <header role="banner">
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+         <div class="container-fluid">
+            <!-- Contains the logo and a toggle button for smaller screen sizes. -->
+            <div class="navbar-header">
+              <!-- Toggles the visibility of the nav area on smaller screen sizes. -->
+              <button type="button" class="navbar-toggle pull-left collapsed" data-toggle="collapse" data-target="#navbar-collapse-div">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <!-- Top-left logo. -->
+              <a class="navbar-brand" href="/index.html" aria-label="TypeScript Home Page">
+                <img class="navbar-logo" src="/assets/images/logo_nocircle.svg" alt="TypeScript logo"/>
+              </a>
+            </div>
+
+            <!-- The navigation items. -->
+            <div class="collapse navbar-collapse centered-navbar" id="navbar-collapse-div">
+              <ul class="nav navbar-nav">
+                <li class=""><a href="/docs/index.html">Documentation </a></li>
+                <li><a href="/index.html#download-links">Download</a></li>
+                <li class=""><a href="/community/index.html">Connect</a></li>
+                <li class=""><a href="/play/index.html">Playground</a></li>
+              </ul>
+
+              <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                  <input type="search" class="form-control site-search" placeholder="Search">
+                </div>
+              </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+	<div class="container-fluid update-banner">
+	<div class="container">
+		TypeScript <a href="/docs/handbook/release-notes/typescript-3-9.html">3.9</a> is now available. <a href="/#download-links" aria-label="Download the latest version of TypeScript">Get</a> the latest version today!
+	</div>
+</div>
+
+	<main id="main-content" class="content">
+		<div class="examples">
+    <div id="content" class="container-fluid fill">
+        <div class="container examplesBg">
+            <div class="row row-centered">
+                
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScript-React-Starter#typescript-react-starter">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/react.png" alt="Logo for React"" />
+                                </div>
+      <h3 class="exampleHeadline">
+        
+        
+          React
+        
+        
+      </h3>
+                                <div class="exampleSummary">If create-react-app had an option to include TypeScript, this is what you'd get: the perfect starting point for React + TypeScript.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>React</span>
+                                    
+                                    <span>Redux</span>
+                                    
+                                    <span>Webpack</span>
+                                    
+                                    <span>Enzyme</span>
+                                    
+                                    <span>Jest</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://angular.io/docs/ts/latest/quickstart.html">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/angular.png" alt="Logo for Angular"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Angular
+        
+        
+      </h3>
+                                <div class="exampleSummary">The Angular team recommends using TypeScript with all your Angular apps. Check out their great tutorial on getting started with both.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>Angular</span>
+                                    
+                                    <span>Protractor</span>
+                                    
+                                    <span>Jasmine</span>
+                                    
+                                    <span>Karma</span>
+                                    
+                                    <span>Rollup</span>
+                                    
+                                    <span>Uglify</span>
+                                    
+                                    <span>TSLint</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScript-Node-Starter#typescript-node-starter">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/node.png" alt="Logo for Express"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Express
+        
+        
+      </h3>
+                                <div class="exampleSummary">Check out this starter project using Express + MongoDB + TypeScript and see why TypeScript and Node.js are a perfect combination.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>Node.js</span>
+                                    
+                                    <span>Express</span>
+                                    
+                                    <span>Pug</span>
+                                    
+                                    <span>Jest</span>
+                                    
+                                    <span>TSLint</span>
+                                    
+                                    <span>MongoDB</span>
+                                    
+                                    <span>Travis CI</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScript-Babel-Starter#readme">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/babel.png" alt="Logo for Babel"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Babel
+        
+        
+      </h3>
+                                <div class="exampleSummary">Leverage type-checking with TypeScript in your existing Babel projects using Babel 7 and later.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>Babel</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScript-React-Native-Starter#typescript-react-native-starter">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/react-native.png" alt="Logo for React Native"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          React Native
+        
+        
+      </h3>
+                                <div class="exampleSummary">Take your JavaScript to mobile devices with React Native while keeping your productivity intact with TypeScript.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>React Native</span>
+                                    
+                                    <span>Enzyme</span>
+                                    
+                                    <span>Jest</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScript-Vue-Starter#typescript-vue-starter">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/vue.png" alt="Logo for Vue.js"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Vue.js
+        
+        
+      </h3>
+                                <div class="exampleSummary">Check out this TodoMVC app using Vue.js and TypeScript.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>Vue.js</span>
+                                    
+                                    <span>Webpack</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="/docs/handbook/asp-net-core.html">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/aspnet.png" alt="Logo for ASP.NET Core"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          ASP.NET Core
+        
+        
+      </h3>
+                                <div class="exampleSummary">This quick start will get you going fast with ASP.NET Core and TypeScript in Visual Studio.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>ASP.NET</span>
+                                    
+                                    <span>Gulp</span>
+                                    
+                                    <span>Angular</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://glimmerjs.com/guides/installing">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/glimmer.png" alt="Logo for Glimmer"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Glimmer
+        
+        
+      </h3>
+                                <div class="exampleSummary">Glimmer is a lightweight component library from the Ember ecosystem with out-of-the-box TypeScript support.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>Glimmer</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScript-WeChat-Starter#开始之前">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/wechat.png" alt="Logo for WeChat"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          WeChat
+        
+        
+      </h3>
+                                <div class="exampleSummary">Use this quick start guide to start building WeChat apps in TypeScript. 立刻尝试！</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>WeChat</span>
+                                    
+                                    <span>Node.js</span>
+                                    
+                                    <span>Express</span>
+                                    
+                                    <span>EJS</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://dojo.io/tutorials/002_creating_an_application/">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/dojo.png" alt="Logo for Dojo 2"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Dojo 2
+        
+        
+      </h3>
+                                <div class="exampleSummary">Dojo 2 is the evolution of the Dojo toolkit and entirely written in TypeScript. Get started here.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>Dojo 2</span>
+                                    
+                                    <span>Intern</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScript-Knockout-Starter#typescript-knockout-starter">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/knockout.png" alt="Logo for Knockout"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Knockout
+        
+        
+      </h3>
+                                <div class="exampleSummary">Knockout is an MVVM JavaScript framework that works wonderfully with TypeScript. Checkout this quick start guide.</div>
+                                <div class="exampleTags">
+                                    
+                                    <span>Knockout</span>
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScript-React-Conversion-Guide#typescript-react-conversion-guide">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/conversion.png" alt="Logo for Migration Guide"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Migration Guide
+        
+        
+      </h3>
+                                <div class="exampleSummary">Have an existing code base? Check out this guide for a step-by-step walkthrough of converting to TypeScript.</div>
+                                <div class="exampleTags">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-xs-6 col-md-4 col-centered exampleBox">
+                    <div class="flip-container">
+                        <a href="https://github.com/Microsoft/TypeScriptSamples/">
+                            <div class="front-face">
+                                <div class="exampleImg">
+                                    <img src="/assets/images/examples/todomvc_400x300.png" alt="Logo for Community Samples"" />
+                                </div>
+    
+      <h3 class="exampleHeadline">
+        
+        
+          Community Samples
+        
+        
+      </h3>
+                                <div class="exampleSummary">A battleship clone browser game, a ray tracer, and many more community contributed samples can be found here.</div>
+                                <div class="exampleTags">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row row-centered survey-box">
+                <p>Didn't find the guide you were looking for? <a href="https://www.surveymonkey.com/r/SN9V7R7" target="_blank"> Tell us </a> how we can help you better.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    body{background-color: #f2f2f2;}
+</style>
+
+<!-- JS -->
+<script>
+    $(document).ready(function() {
+        $(".tagFilters").click(function() {
+            if ($('.examples').height() <= ($(window).height() - $("footer").height())){
+                $('footer').css('position','absolute').css("bottom",0).css("width","100%");
+            }
+            else {
+                $('footer').css('position','static');
+            }
+        });
+    });
+</script>
+
+	</main>
+	<footer role="contentinfo">
+    <div class="container-fluid signature-container">
+        <div class="container">
+            <div class="row signature">
+                <div class="col-sm-7 col-xs-12">
+                    <p class="pull-left">Made with <span class="glyphicon glyphicon-heart"></span> in Redmond</p>
+                    <div class="twitter-buttons pull-left">
+                        <a class="twitter-follow-button" href="https://twitter.com/typescript/">Follow @typescript</a>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <img class="ms-logo-footer pull-right" src="/assets/images/Microsoft-logo_rgb_c-gray.svg" alt="Microsoft logo"/>
+                    <p class="copyright pull-right">&copy;2012-2020 Microsoft</p>
+                    <p class="privacy pull-right"><a href="https://go.microsoft.com/fwlink/?LinkId=521839" data-mscc-ic="false">Privacy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+<!-- JS -->
+<script src="/assets/js/libraries.5f479ded.js"></script>
+<!-- at the end of the BODY -->
+
+<script type="text/javascript">
+docsearch({
+  apiKey: '3c2db2aef0c7ff26e8911267474a9b2c',
+  indexName: 'typescriptlang',
+  inputSelector: '.site-search',
+  debug: true // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</html>

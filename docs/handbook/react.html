@@ -1,0 +1,1639 @@
+<!DOCTYPE html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us" lang="en">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
+  
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      React &middot; TypeScript
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/vendor.91c84422.css">
+
+  <link rel="stylesheet" href="/assets/css/style.min.e3093056.css">
+
+  <!-- Icons --> <!-- TODO: Check that these all wok -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/icons/manifest.json">
+  <link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/assets/images/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/assets/images/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- JS -->
+  <script src="/assets/js/vendors.4960e48a.js"></script>
+
+  <!-- JS -->
+  <script src="/assets/js/all.min.0df14029.js"></script>
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Application Insights in Azure -->
+  <script type="text/javascript">
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.async = true;n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}({ instrumentationKey: "78a8fb52-a225-4c66-ac08-92fad1c1ade1" });window[aiName]=aisdk
+    if (aisdk.queue && 0 === aisdk.queue.length) {
+        const locationWithoutPlaygroundCode = document.location.href.split("#code")[0].split("#src")[0]
+        const referrerWithoutPlaygroundCode = document.referrer && document.referrer.split("#code")[0].split("#src")[0]
+        aisdk.trackPageView({ uri: locationWithoutPlaygroundCode, refUri: referrerWithoutPlaygroundCode });
+    }
+  </script>
+
+  <!-- Search -->
+  <link rel="stylesheet" href="/assets/stylesheets/docsearch.css" />
+
+</head>
+
+<body>
+	<a href="#main-content" class="main-content-skip" tabindex="0">
+    Skip to main content
+</a>
+    <header role="banner">
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+         <div class="container-fluid">
+            <!-- Contains the logo and a toggle button for smaller screen sizes. -->
+            <div class="navbar-header">
+              <!-- Toggles the visibility of the nav area on smaller screen sizes. -->
+              <button type="button" class="navbar-toggle pull-left collapsed" data-toggle="collapse" data-target="#navbar-collapse-div">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <!-- Top-left logo. -->
+              <a class="navbar-brand" href="/index.html" aria-label="TypeScript Home Page">
+                <img class="navbar-logo" src="/assets/images/logo_nocircle.svg" alt="TypeScript logo"/>
+              </a>
+            </div>
+
+            <!-- The navigation items. -->
+            <div class="collapse navbar-collapse centered-navbar" id="navbar-collapse-div">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/docs/index.html">Documentation </a></li>
+                <li><a href="/index.html#download-links">Download</a></li>
+                <li class=""><a href="/community/index.html">Connect</a></li>
+                <li class=""><a href="/play/index.html">Playground</a></li>
+              </ul>
+
+              <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                  <input type="search" class="form-control site-search" placeholder="Search">
+                </div>
+              </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+	<div class="container-fluid update-banner">
+	<div class="container">
+		TypeScript <a href="/docs/handbook/release-notes/typescript-3-9.html">3.9</a> is now available. <a href="/#download-links" aria-label="Download the latest version of TypeScript">Get</a> the latest version today!
+	</div>
+</div>
+
+	<main id="main-content" class="content">
+		<div id="doc-content" class="container-fluid fill docs-container">
+        <a id='try-beta' style="display:none;">Try v2 Beta Page</a>
+        <script>
+          const tryBeta = document.getElementById("try-beta")
+          const mobile = window.outerWidth < 800
+          const isHome = document.location.pathname === "/docs/home.html"
+          if (!isHome) {
+            tryBeta.style.display = "block";
+
+            tryBeta.onclick = () => {
+              document.location  = "https://www.staging-typescript.org/" + document.location.pathname
+            }
+          }
+        </script>
+        <div class="container">
+
+        <div class="col-md-2 toc-container hidden-xs hidden-sm">
+          <nav class="docs-nav visible-md visible-lg affix-top" id="docs-navbar">
+  <ul class="nav" id="main-nav">
+    
+    <li class="panel"><a class="docs-home" href="/docs/home.html">Documentation</a></li>    					
+
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-tutorials" data-toggle="collapse" data-parent="#main-nav">Tutorials</a>         
+        <ul class="collapse" id="toc-tutorials" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/typescript-in-5-minutes.html>TypeScript in 5 minutes</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/asp-net-core.html>ASP.NET Core</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/gulp.html>Gulp</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/migrating-from-javascript.html>Migrating from JavaScript</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/react-&-webpack.html>React & Webpack</a>
+                </li>
+            
+        </ul>
+    </li>
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-whats-new" data-toggle="collapse" data-parent="#main-nav">What's New</a>         
+        <ul class="collapse" id="toc-whats-new" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/overview.html>Overview</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-9.html>TypeScript 3.9</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-8.html>TypeScript 3.8</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-7.html>TypeScript 3.7</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-6.html>TypeScript 3.6</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-5.html>TypeScript 3.5</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-4.html>TypeScript 3.4</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-3.html>TypeScript 3.3</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-2.html>TypeScript 3.2</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-1.html>TypeScript 3.1</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-3-0.html>TypeScript 3.0</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-9.html>TypeScript 2.9</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-8.html>TypeScript 2.8</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-7.html>TypeScript 2.7</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-6.html>TypeScript 2.6</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-5.html>TypeScript 2.5</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-4.html>TypeScript 2.4</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-3.html>TypeScript 2.3</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-2.html>TypeScript 2.2</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-1.html>TypeScript 2.1</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-2-0.html>TypeScript 2.0</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-8.html>TypeScript 1.8</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-7.html>TypeScript 1.7</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-6.html>TypeScript 1.6</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-5.html>TypeScript 1.5</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-4.html>TypeScript 1.4</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-3.html>TypeScript 1.3</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/release-notes/typescript-1-1.html>TypeScript 1.1</a>
+                </li>
+            
+        </ul>
+    </li>
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-handbook" data-toggle="collapse" data-parent="#main-nav">Handbook</a>         
+        <ul class="collapse" id="toc-handbook" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/basic-types.html>Basic Types</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/variable-declarations.html>Variable Declarations</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/interfaces.html>Interfaces</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/classes.html>Classes</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/functions.html>Functions</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/generics.html>Generics</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/enums.html>Enums</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/type-inference.html>Type Inference</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/type-compatibility.html>Type Compatibility</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/advanced-types.html>Advanced Types</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/symbols.html>Symbols</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/iterators-and-generators.html>Iterators and Generators</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/modules.html>Modules</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/namespaces.html>Namespaces</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/namespaces-and-modules.html>Namespaces and Modules</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/module-resolution.html>Module Resolution</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-merging.html>Declaration Merging</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/jsx.html>JSX</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/decorators.html>Decorators</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/mixins.html>Mixins</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/triple-slash-directives.html>Triple-Slash Directives</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/type-checking-javascript-files.html>Type Checking JavaScript Files</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/utility-types.html>Utility Types</a>
+                </li>
+            
+        </ul>
+    </li>
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-declaration-files" data-toggle="collapse" data-parent="#main-nav">Declaration Files</a>         
+        <ul class="collapse" id="toc-declaration-files" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/introduction.html>Introduction</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/library-structures.html>Library Structures</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/by-example.html>By Example</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/do-s-and-don-ts.html>Do's and Don'ts</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/deep-dive.html>Deep Dive</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/templates.html>Templates</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/publishing.html>Publishing</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/declaration-files/consumption.html>Consumption</a>
+                </li>
+            
+        </ul>
+    </li>
+    
+    <li class="panel collapsed">
+      <a class="area collapsed" aria-expanded="false" href="#toc-project-config" data-toggle="collapse" data-parent="#main-nav">Project Configuration</a>         
+        <ul class="collapse" id="toc-project-config" aria-expanded="false">
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/tsconfig-json.html>tsconfig.json</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/compiler-options.html>Compiler Options</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/project-references.html>Project References</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/compiler-options-in-msbuild.html>Compiler Options in MSBuild</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/integrating-with-build-tools.html>Integrating with Build Tools</a>
+                </li>
+            
+                <li class="toc-item">
+                  <a href=/docs/handbook/nightly-builds.html>Nightly Builds</a>
+                </li>
+            
+        </ul>
+    </li>
+        
+    
+	</ul>
+</nav>
+
+        </div>
+        <div class="col-md-10 col-xs-12 col-sm-12  doc-content-container">
+          <div class="xs-toc-container visible-xs visible-sm">
+            <nav class='xs-toc'>
+  <div class="toc-dropdown">
+    <a class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" href="#">
+      Documentation
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a href="/docs/home.html">Documentation</a>
+      </li>
+      
+      <li>
+          <ul>
+      <h2>
+        
+        
+          Tutorials
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/typescript-in-5-minutes.html>TypeScript in 5 minutes</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/asp-net-core.html>ASP.NET Core</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/gulp.html>Gulp</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/migrating-from-javascript.html>Migrating from JavaScript</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/react-&-webpack.html>React & Webpack</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+      <li>
+          <ul>
+    
+      <h2>
+        
+        
+          What's New
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/overview.html>Overview</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-9.html>TypeScript 3.9</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-8.html>TypeScript 3.8</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-7.html>TypeScript 3.7</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-6.html>TypeScript 3.6</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-5.html>TypeScript 3.5</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-4.html>TypeScript 3.4</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-3.html>TypeScript 3.3</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-2.html>TypeScript 3.2</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-1.html>TypeScript 3.1</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-3-0.html>TypeScript 3.0</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-9.html>TypeScript 2.9</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-8.html>TypeScript 2.8</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-7.html>TypeScript 2.7</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-6.html>TypeScript 2.6</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-5.html>TypeScript 2.5</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-4.html>TypeScript 2.4</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-3.html>TypeScript 2.3</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-2.html>TypeScript 2.2</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-1.html>TypeScript 2.1</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-2-0.html>TypeScript 2.0</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-8.html>TypeScript 1.8</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-7.html>TypeScript 1.7</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-6.html>TypeScript 1.6</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-5.html>TypeScript 1.5</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-4.html>TypeScript 1.4</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-3.html>TypeScript 1.3</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/release-notes/typescript-1-1.html>TypeScript 1.1</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+      <li>
+          <ul>
+    
+      <h2>
+        
+        
+          Handbook
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/basic-types.html>Basic Types</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/variable-declarations.html>Variable Declarations</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/interfaces.html>Interfaces</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/classes.html>Classes</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/functions.html>Functions</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/generics.html>Generics</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/enums.html>Enums</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/type-inference.html>Type Inference</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/type-compatibility.html>Type Compatibility</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/advanced-types.html>Advanced Types</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/symbols.html>Symbols</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/iterators-and-generators.html>Iterators and Generators</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/modules.html>Modules</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/namespaces.html>Namespaces</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/namespaces-and-modules.html>Namespaces and Modules</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/module-resolution.html>Module Resolution</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-merging.html>Declaration Merging</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/jsx.html>JSX</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/decorators.html>Decorators</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/mixins.html>Mixins</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/triple-slash-directives.html>Triple-Slash Directives</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/type-checking-javascript-files.html>Type Checking JavaScript Files</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/utility-types.html>Utility Types</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+      <li>
+          <ul>
+    
+      <h2>
+        
+        
+          Declaration Files
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/introduction.html>Introduction</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/library-structures.html>Library Structures</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/by-example.html>By Example</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/do-s-and-don-ts.html>Do's and Don'ts</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/deep-dive.html>Deep Dive</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/templates.html>Templates</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/publishing.html>Publishing</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/declaration-files/consumption.html>Consumption</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+      <li>
+          <ul>
+    
+      <h2>
+        
+        
+          Project Configuration
+        
+        
+      </h2>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/tsconfig-json.html>tsconfig.json</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/compiler-options.html>Compiler Options</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/project-references.html>Project References</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/compiler-options-in-msbuild.html>Compiler Options in MSBuild</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/integrating-with-build-tools.html>Integrating with Build Tools</a>
+                  </li>
+              
+                  <li class="toc-item">
+                    <a href=/docs/handbook/nightly-builds.html>Nightly Builds</a>
+                  </li>
+              
+          </ul>
+      </li>
+      
+    </ul>
+  </div>    
+</nav>
+
+          </div>
+    <header class="post-header">
+      <h1 class="post-title">
+        
+        
+          React
+        
+        
+      </header>
+          <article class="post-content">
+              <p></p>
+              <p>This quick start guide will teach you how to wire up TypeScript with <a href="https://reactjs.org/">React</a>.
+By the end, you’ll have</p>
+
+<ul>
+  <li>a project with React and TypeScript</li>
+  <li>linting with <a href="https://github.com/palantir/tslint">TSLint</a></li>
+  <li>testing with <a href="https://facebook.github.io/jest/">Jest</a> and <a href="http://airbnb.io/enzyme/">Enzyme</a>, and</li>
+  <li>state management with <a href="https://github.com/reactjs/react-redux">Redux</a></li>
+</ul>
+
+<p>We’ll use the <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> tool to quickly get set up.</p>
+
+<p>We assume that you’re already using <a href="https://nodejs.org/">Node.js</a> with <a href="https://www.npmjs.com/">npm</a>.
+You may also want to get a sense of <a href="https://reactjs.org/docs/hello-world.html">the basics with React</a>.</p>
+    
+      <h1 id="install-create-react-app">
+        
+        
+          Install create-react-app <a aria-label="Link to the header: Install create-react-app" title="Link to the header: Install create-react-app" href="#install-create-react-app" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>We’re going to use the create-react-app because it sets some useful tools and canonical defaults for React projects.
+This is just a command-line utility to scaffold out new React projects.</p>
+
+<pre><code class="language-shell">npm install -g create-react-app
+</code></pre>
+    
+      <h1 id="create-our-new-project">
+        
+        
+          Create our new project <a aria-label="Link to the header: Create our new project" title="Link to the header: Create our new project" href="#create-our-new-project" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>We’ll create a new project called <code>my-app</code>:</p>
+
+<pre><code class="language-shell">create-react-app my-app --scripts-version=react-scripts-ts
+</code></pre>
+
+<p><a href="https://www.npmjs.com/package/react-scripts-ts">react-scripts-ts</a> is a set of adjustments to take the standard create-react-app project pipeline and bring TypeScript into the mix.</p>
+
+<p>At this point, your project layout should look like the following:</p>
+
+<pre><code class="language-text">my-app/
+├─ .gitignore
+├─ node_modules/
+├─ public/
+├─ src/
+│  └─ ...
+├─ package.json
+├─ tsconfig.json
+└─ tslint.json
+</code></pre>
+
+<p>Of note:</p>
+
+<ul>
+  <li><code>tsconfig.json</code> contains TypeScript-specific options for our project.</li>
+  <li><code>tslint.json</code> stores the settings that our linter, <a href="https://github.com/palantir/tslint">TSLint</a>, will use.</li>
+  <li><code>package.json</code> contains our dependencies, as well as some shortcuts for commands we’d like to run for testing, previewing, and deploying our app.</li>
+  <li><code>public</code> contains static assets like the HTML page we’re planning to deploy to, or images. You can delete any file in this folder apart from <code>index.html</code>.</li>
+  <li><code>src</code> contains our TypeScript and CSS code. <code>index.tsx</code> is the entry-point for our file, and is mandatory.</li>
+</ul>
+    
+      <h1 id="running-the-project">
+        
+        
+          Running the project <a aria-label="Link to the header: Running the project" title="Link to the header: Running the project" href="#running-the-project" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>Running the project is as simple as running</p>
+
+<pre><code class="language-sh">npm run start
+</code></pre>
+
+<p>This runs the <code>start</code> script specified in our <code>package.json</code>, and will spawn off a server which reloads the page as we save our files.
+Typically the server runs at <code>http://localhost:3000</code>, but should be automatically opened for you.</p>
+
+<p>This tightens the iteration loop by allowing us to quickly preview changes.</p>
+    
+      <h1 id="testing-the-project">
+        
+        
+          Testing the project <a aria-label="Link to the header: Testing the project" title="Link to the header: Testing the project" href="#testing-the-project" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>Testing is also just a command away:</p>
+
+<pre><code class="language-sh">npm run test
+</code></pre>
+
+<p>This command runs Jest, an incredibly useful testing utility, against all files whose extensions end in <code>.test.ts</code> or <code>.spec.ts</code>.
+Like with the <code>npm run start</code> command, Jest will automatically run as soon as it detects changes.
+If you’d like, you can run <code>npm run start</code> and <code>npm run test</code> side by side so that you can preview changes and test them simultaneously.</p>
+    
+      <h1 id="creating-a-production-build">
+        
+        
+          Creating a production build <a aria-label="Link to the header: Creating a production build" title="Link to the header: Creating a production build" href="#creating-a-production-build" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>When running the project with <code>npm run start</code>, we didn’t end up with an optimized build.
+Typically, we want the code we ship to users to be as fast and small as possible.
+Certain optimizations like minification can accomplish this, but often take more time.
+We call builds like this “production” builds (as opposed to development builds).</p>
+
+<p>To run a production build, just run</p>
+
+<pre><code class="language-sh">npm run build
+</code></pre>
+
+<p>This will create an optimized JS and CSS build in <code>./build/static/js</code> and <code>./build/static/css</code> respectively.</p>
+
+<p>You won’t need to run a production build most of the time,
+but it is useful if you need to measure things like the final size of your app.</p>
+    
+      <h1 id="creating-a-component">
+        
+        
+          Creating a component <a aria-label="Link to the header: Creating a component" title="Link to the header: Creating a component" href="#creating-a-component" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>We’re going to write a <code>Hello</code> component.
+The component will take the name of whatever we want to greet (which we’ll call <code>name</code>), and optionally the number of exclamation marks to trail with (<code>enthusiasmLevel</code>).</p>
+
+<p>When we write something like <code>&lt;Hello name="Daniel" enthusiasmLevel={3} /&gt;</code>, the component should render to something like <code>&lt;div&gt;Hello Daniel!!!&lt;/div&gt;</code>.
+If <code>enthusiasmLevel</code> isn’t specified, the component should default to showing one exclamation mark.
+If <code>enthusiasmLevel</code> is <code>0</code> or negative, it should throw an error.</p>
+
+<p>We’ll write a <code>Hello.tsx</code>:</p>
+
+<pre><code class="language-ts">// src/components/Hello.tsx
+
+import * as React from 'react';
+
+export interface Props {
+  name: string;
+  enthusiasmLevel?: number;
+}
+
+function Hello({ name, enthusiasmLevel = 1 }: Props) {
+  if (enthusiasmLevel &lt;= 0) {
+    throw new Error('You could be a little more enthusiastic. :D');
+  }
+
+  return (
+    &lt;div className="hello"&gt;
+      &lt;div className="greeting"&gt;
+        Hello {name + getExclamationMarks(enthusiasmLevel)}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Hello;
+
+// helpers
+
+function getExclamationMarks(numChars: number) {
+  return Array(numChars + 1).join('!');
+}
+</code></pre>
+
+<p>Notice that we defined a type named <code>Props</code> that specifies the properties our component will take.
+<code>name</code> is a required <code>string</code>, and <code>enthusiasmLevel</code> is an optional <code>number</code> (which you can tell from the <code>?</code> that we wrote out after its name).</p>
+
+<p>We also wrote <code>Hello</code> as a function component.
+To be specific, <code>Hello</code> is a function that takes a <code>Props</code> object, and destructures it.
+If <code>enthusiasmLevel</code> isn’t given in our <code>Props</code> object, it will default to <code>1</code>.</p>
+
+<p>Writing functions is one of two primary <a href="(https://reactjs.org/docs/components-and-props.html#functional-and-class-components)">ways React allows us to make components</a>.
+If we wanted, we <em>could</em> have written it out as a class as follows:</p>
+
+<pre><code class="language-ts">class Hello extends React.Component&lt;Props, object&gt; {
+  render() {
+    const { name, enthusiasmLevel = 1 } = this.props;
+
+    if (enthusiasmLevel &lt;= 0) {
+      throw new Error('You could be a little more enthusiastic. :D');
+    }
+
+    return (
+      &lt;div className="hello"&gt;
+        &lt;div className="greeting"&gt;
+          Hello {name + getExclamationMarks(enthusiasmLevel)}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+
+<p>Classes are useful <a href="https://reactjs.org/docs/state-and-lifecycle.html">when our component instances have some state</a>.
+But we don’t really need to think about state in this example - in fact, we specified it as <code>object</code> in <code>React.Component&lt;Props, object&gt;</code>, so writing a function component tends to be shorter.
+Local component state is more useful at the presentational level when creating generic UI elements that can be shared between libraries.
+For our application’s lifecycle, we will revisit how applications manage general state with Redux in a bit.</p>
+
+<p>Now that we’ve written our component, let’s dive into <code>index.tsx</code> and replace our render of <code>&lt;App /&gt;</code> with a render of <code>&lt;Hello ... /&gt;</code>.</p>
+
+<p>First we’ll import it at the top of the file:</p>
+
+<pre><code class="language-ts">import Hello from './components/Hello';
+</code></pre>
+
+<p>and then change up our <code>render</code> call:</p>
+
+<pre><code class="language-ts">ReactDOM.render(
+  &lt;Hello name="TypeScript" enthusiasmLevel={10} /&gt;,
+  document.getElementById('root') as HTMLElement
+);
+</code></pre>
+    
+      <h2 id="type-assertions">
+        
+        
+          Type assertions <a aria-label="Link to the header: Type assertions" title="Link to the header: Type assertions" href="#type-assertions" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>One final thing we’ll point out in this section is the line <code>document.getElementById('root') as HTMLElement</code>.
+This syntax is called a <em>type assertion</em>, sometimes also called a <em>cast</em>.
+This is a useful way of telling TypeScript what the real type of an expression is when you know better than the type checker.</p>
+
+<p>The reason we need to do so in this case is that <code>getElementById</code>’s return type is <code>HTMLElement | null</code>.
+Put simply, <code>getElementById</code> returns <code>null</code> when it can’t find an element with a given <code>id</code>.
+We’re assuming that <code>getElementById</code> will actually succeed, so we need convince TypeScript of that using the <code>as</code> syntax.</p>
+
+<p>TypeScript also has a trailing “bang” syntax (<code>!</code>), which removes <code>null</code> and <code>undefined</code> from the prior expression.
+So we <em>could</em> have written <code>document.getElementById('root')!</code>, but in this case we wanted to be a bit more explicit.</p>
+    
+      <h1 id="adding-style-">
+        
+        
+          Adding style 😎 <a aria-label="Link to the header: Adding style 😎" title="Link to the header: Adding style 😎" href="#adding-style-" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>Styling a component with our setup is easy.
+To style our <code>Hello</code> component, we can create a CSS file at <code>src/components/Hello.css</code>.</p>
+
+<pre><code class="language-css">.hello {
+  text-align: center;
+  margin: 20px;
+  font-size: 48px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.hello button {
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 40px;
+    min-width: 50px;
+}
+</code></pre>
+
+<p>The tools that create-react-app uses (namely, Webpack and various loaders) allow us to just import the stylesheets we’re interested in.
+When our build runs, any imported <code>.css</code> files will be concatenated into an output file.
+So in <code>src/components/Hello.tsx</code>, we’ll add the following import.</p>
+
+<pre><code class="language-ts">import './Hello.css';
+</code></pre>
+    
+      <h1 id="writing-tests-with-jest">
+        
+        
+          Writing tests with Jest <a aria-label="Link to the header: Writing tests with Jest" title="Link to the header: Writing tests with Jest" href="#writing-tests-with-jest" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>We had a certain set of assumptions about our <code>Hello</code> component.
+Let’s reiterate what they were:</p>
+
+<blockquote>
+  <ul>
+    <li>When we write something like <code>&lt;Hello name="Daniel" enthusiasmLevel={3} /&gt;</code>, the component should render to something like <code>&lt;div&gt;Hello Daniel!!!&lt;/div&gt;</code>.</li>
+    <li>If <code>enthusiasmLevel</code> isn’t specified, the component should default to showing one exclamation mark.</li>
+    <li>If <code>enthusiasmLevel</code> is <code>0</code> or negative, it should throw an error.</li>
+  </ul>
+</blockquote>
+
+<p>We can use these requirements to write a few tests for our components.</p>
+
+<p>But first, let’s install Enzyme.
+<a href="http://airbnb.io/enzyme/">Enzyme</a> is a common tool in the React ecosystem that makes it easier to write tests for how components will behave.
+By default, our application includes a library called jsdom to allow us to simulate the DOM and test its runtime behavior without a browser.
+Enzyme is similar, but builds on jsdom and makes it easier to make certain queries about our components.</p>
+
+<p>Let’s install it as a development-time dependency.</p>
+
+<pre><code class="language-sh">npm install -D enzyme @types/enzyme enzyme-adapter-react-16 @types/enzyme-adapter-react-16 react-addons-test-utils 
+</code></pre>
+
+<p>Notice we installed packages <code>enzyme</code> as well as <code>@types/enzyme</code>.
+The <code>enzyme</code> package refers to the package containing JavaScript code that actually gets run, while <code>@types/enzyme</code> is a package that contains declaration files (<code>.d.ts</code> files) so that TypeScript can understand how you can use Enzyme.
+You can learn more about <code>@types</code> packages <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html">here</a>.</p>
+
+<p>We had to install <code>react-addons-test-utils</code>.
+This is something <code>enzyme</code> expects to be installed.</p>
+
+<p>We also had to make sure <code>esModuleInterop</code> is set to <code>true</code> in the <code>tsconfig.json</code></p>
+
+<p>Now that we’ve got Enzyme set up, let’s start writing our test!
+Let’s create a file named <code>src/components/Hello.test.tsx</code>, adjacent to our <code>Hello.tsx</code> file from earlier.</p>
+
+<pre><code class="language-ts">// src/components/Hello.test.tsx
+
+import * as React from 'react';
+import * as enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Hello from './Hello';
+
+Enzyme.configure({ adapter: new Adapter() });
+
+it('renders the correct text when no enthusiasm level is given', () =&gt; {
+  const hello = enzyme.shallow(&lt;Hello name='Daniel' /&gt;);
+  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+});
+
+it('renders the correct text with an explicit enthusiasm of 1', () =&gt; {
+  const hello = enzyme.shallow(&lt;Hello name='Daniel' enthusiasmLevel={1}/&gt;);
+  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!')
+});
+
+it('renders the correct text with an explicit enthusiasm level of 5', () =&gt; {
+  const hello = enzyme.shallow(&lt;Hello name='Daniel' enthusiasmLevel={5} /&gt;);
+  expect(hello.find(".greeting").text()).toEqual('Hello Daniel!!!!!');
+});
+
+it('throws when the enthusiasm level is 0', () =&gt; {
+  expect(() =&gt; {
+    enzyme.shallow(&lt;Hello name='Daniel' enthusiasmLevel={0} /&gt;);
+  }).toThrow();
+});
+
+it('throws when the enthusiasm level is negative', () =&gt; {
+  expect(() =&gt; {
+    enzyme.shallow(&lt;Hello name='Daniel' enthusiasmLevel={-1} /&gt;);
+  }).toThrow();
+});
+</code></pre>
+
+<p>These tests are extremely basic, but you should be able to get the gist of things.</p>
+    
+      <h1 id="adding-state-management">
+        
+        
+          Adding state management <a aria-label="Link to the header: Adding state management" title="Link to the header: Adding state management" href="#adding-state-management" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>At this point, if all you’re using React for is fetching data once and displaying it, you can consider yourself done.
+But if you’re developing an app that’s more interactive, then you may need to add state management.</p>
+    
+      <h2 id="state-management-in-general">
+        
+        
+          State management in general <a aria-label="Link to the header: State management in general" title="Link to the header: State management in general" href="#state-management-in-general" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>On its own, React is a useful library for creating composable views.
+However, React doesn’t come with any facility for synchronizing data between your application.
+As far as a React component is concerned, data flows down through its children through the props you specify on each element.</p>
+
+<p>Because React on its own does not provide built-in support for state management, the React community uses libraries like Redux and MobX.</p>
+
+<p><a href="http://redux.js.org">Redux</a> relies on synchronizing data through a centralized and immutable store of data, and updates to that data will trigger a re-render of our application.
+State is updated in an immutable fashion by sending explicit action messages which must be handled by functions called reducers.
+Because of the explicit nature, it is often easier to reason about how an action will affect the state of your program.</p>
+
+<p><a href="https://mobx.js.org/">MobX</a> relies on functional reactive patterns where state is wrapped through observables and passed through as props.
+Keeping state fully synchronized for any observers is done by simply marking state as observable.
+As a nice bonus, the library is already written in TypeScript.</p>
+
+<p>There are various merits and tradeoffs to both.
+Generally Redux tends to see more widespread usage, so for the purposes of this tutorial, we’ll focus on adding Redux;
+however, you should feel encouraged to explore both.</p>
+
+<p>The following section may have a steep learning curve.
+We strongly suggest you <a href="http://redux.js.org/">familiarize yourself with Redux through its documentation</a>.</p>
+    
+      <h2 id="setting-the-stage-for-actions">
+        
+        
+          Setting the stage for actions <a aria-label="Link to the header: Setting the stage for actions" title="Link to the header: Setting the stage for actions" href="#setting-the-stage-for-actions" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>It doesn’t make sense to add Redux unless the state of our application changes.
+We need a source of actions that will trigger changes to take place.
+This can be a timer, or something in the UI like a button.</p>
+
+<p>For our purposes, we’re going to add two buttons to control the enthusiasm level for our <code>Hello</code> component.</p>
+    
+      <h2 id="installing-redux">
+        
+        
+          Installing Redux <a aria-label="Link to the header: Installing Redux" title="Link to the header: Installing Redux" href="#installing-redux" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>To add Redux, we’ll first install <code>redux</code> and <code>react-redux</code>, as well as their types, as a dependency.</p>
+
+<pre><code class="language-sh">npm install -S redux react-redux @types/react-redux
+</code></pre>
+
+<p>In this case we didn’t need to install <code>@types/redux</code> because Redux already comes with its own definition files (<code>.d.ts</code> files).</p>
+    
+      <h2 id="defining-our-apps-state">
+        
+        
+          Defining our app’s state <a aria-label="Link to the header: Defining our app’s state" title="Link to the header: Defining our app’s state" href="#defining-our-apps-state" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>We need to define the shape of the state which Redux will store.
+For this, we can create a file called <code>src/types/index.tsx</code> which will contain definitions for types that we might use throughout the program.</p>
+
+<pre><code class="language-ts">// src/types/index.tsx
+
+export interface StoreState {
+    languageName: string;
+    enthusiasmLevel: number;
+}
+</code></pre>
+
+<p>Our intention is that <code>languageName</code> will be the programming language this app was written in (i.e. TypeScript or JavaScript) and <code>enthusiasmLevel</code> will vary.
+When we write our first container, we’ll understand why we intentionally made our state slightly different from our props.</p>
+    
+      <h2 id="adding-actions">
+        
+        
+          Adding actions <a aria-label="Link to the header: Adding actions" title="Link to the header: Adding actions" href="#adding-actions" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>Let’s start off by creating a set of message types that our app can respond to in <code>src/constants/index.tsx</code>.</p>
+
+<pre><code class="language-ts">// src/constants/index.tsx
+
+export const INCREMENT_ENTHUSIASM = 'INCREMENT_ENTHUSIASM';
+export type INCREMENT_ENTHUSIASM = typeof INCREMENT_ENTHUSIASM;
+
+
+export const DECREMENT_ENTHUSIASM = 'DECREMENT_ENTHUSIASM';
+export type DECREMENT_ENTHUSIASM = typeof DECREMENT_ENTHUSIASM;
+</code></pre>
+
+<p>This <code>const</code>/<code>type</code> pattern allows us to use TypeScript’s string literal types in an easily accessible and refactorable way.</p>
+
+<p>Next, we’ll create a set of actions and functions that can create these actions in <code>src/actions/index.tsx</code>.</p>
+
+<pre><code class="language-ts">import * as constants from '../constants'
+
+export interface IncrementEnthusiasm {
+    type: constants.INCREMENT_ENTHUSIASM;
+}
+
+export interface DecrementEnthusiasm {
+    type: constants.DECREMENT_ENTHUSIASM;
+}
+
+export type EnthusiasmAction = IncrementEnthusiasm | DecrementEnthusiasm;
+
+export function incrementEnthusiasm(): IncrementEnthusiasm {
+    return {
+        type: constants.INCREMENT_ENTHUSIASM
+    }
+}
+
+export function decrementEnthusiasm(): DecrementEnthusiasm {
+    return {
+        type: constants.DECREMENT_ENTHUSIASM
+    }
+}
+</code></pre>
+
+<p>We’ve created two types that describe what increment actions and decrement actions should look like.
+We also created a type (<code>EnthusiasmAction</code>) to describe cases where an action could be an increment or a decrement.
+Finally, we made two functions that actually manufacture the actions which we can use instead of writing out bulky object literals.</p>
+
+<p>There’s clearly boilerplate here, so you should feel free to look into libraries like <a href="https://www.npmjs.com/package/redux-actions">redux-actions</a> once you’ve got the hang of things.</p>
+    
+      <h2 id="adding-a-reducer">
+        
+        
+          Adding a reducer <a aria-label="Link to the header: Adding a reducer" title="Link to the header: Adding a reducer" href="#adding-a-reducer" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>We’re ready to write our first reducer!
+Reducers are just functions that generate changes by creating modified copies of our application’s state, but that have <em>no side effects</em>.
+In other words, they’re what we call <em><a href="https://en.wikipedia.org/wiki/Pure_function">pure functions</a></em>.</p>
+
+<p>Our reducer will go under <code>src/reducers/index.tsx</code>.
+Its function will be to ensure that increments raise the enthusiasm level by 1, and that decrements reduce the enthusiasm level by 1, but that the level never falls below 1.</p>
+
+<pre><code class="language-ts">// src/reducers/index.tsx
+
+import { EnthusiasmAction } from '../actions';
+import { StoreState } from '../types/index';
+import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
+
+export function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreState {
+  switch (action.type) {
+    case INCREMENT_ENTHUSIASM:
+      return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
+    case DECREMENT_ENTHUSIASM:
+      return { ...state, enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1) };
+  }
+  return state;
+}
+</code></pre>
+
+<p>Notice that we’re using the <em>object spread</em> (<code>...state</code>) which allows us to create a shallow copy of our state, while replacing the <code>enthusiasmLevel</code>.
+It’s important that the <code>enthusiasmLevel</code> property come last, since otherwise it would be overridden by the property in our old state.</p>
+
+<p>You may want to write a few tests for your reducer.
+Since reducers are pure functions, they can be passed arbitrary data.
+For every input, reducers can tested by checking their newly produced state.
+Consider looking into Jest’s <a href="https://facebook.github.io/jest/docs/en/expect.html#toequalvalue">toEqual</a> method to accomplish this.</p>
+    
+      <h2 id="making-a-container">
+        
+        
+          Making a container <a aria-label="Link to the header: Making a container" title="Link to the header: Making a container" href="#making-a-container" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>When writing with Redux, we will often write components as well as containers.
+Components are often data-agnostic, and work mostly at a presentational level.
+<em>Containers</em> typically wrap components and feed them any data that is necessary to display and modify state.
+You can read more about this concept on <a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0">Dan Abramov’s article <em>Presentational and Container Components</em></a>.</p>
+
+<p>First let’s update <code>src/components/Hello.tsx</code> so that it can modify state.
+We’ll add two optional callback properties to <code>Props</code> named <code>onIncrement</code> and <code>onDecrement</code>:</p>
+
+<pre><code class="language-ts">export interface Props {
+  name: string;
+  enthusiasmLevel?: number;
+  onIncrement?: () =&gt; void;
+  onDecrement?: () =&gt; void;
+}
+</code></pre>
+
+<p>Then we’ll bind those callbacks to two new buttons that we’ll add into our component.</p>
+
+<pre><code class="language-ts">function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
+  if (enthusiasmLevel &lt;= 0) {
+    throw new Error('You could be a little more enthusiastic. :D');
+  }
+
+  return (
+    &lt;div className="hello"&gt;
+      &lt;div className="greeting"&gt;
+        Hello {name + getExclamationMarks(enthusiasmLevel)}
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;button onClick={onDecrement}&gt;-&lt;/button&gt;
+        &lt;button onClick={onIncrement}&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<p>In general, it’d be a good idea to write a few tests for <code>onIncrement</code> and <code>onDecrement</code> being triggered when their respective buttons are clicked.
+Give it a shot to get the hang of writing tests for your components.</p>
+
+<p>Now that our component is updated, we’re ready to wrap it into a container.
+Let’s create a file named <code>src/containers/Hello.tsx</code> and start off with the following imports.</p>
+
+<pre><code class="language-ts">import Hello from '../components/Hello';
+import * as actions from '../actions/';
+import { StoreState } from '../types/index';
+import { connect, Dispatch } from 'react-redux';
+</code></pre>
+
+<p>The real two key pieces here are the original <code>Hello</code> component as well as the <code>connect</code> function from react-redux.
+<code>connect</code> will be able to actually take our original <code>Hello</code> component and turn it into a container using two functions:</p>
+
+<ul>
+  <li><code>mapStateToProps</code> which massages the data from the current store to part of the shape that our component needs.</li>
+  <li><code>mapDispatchToProps</code> which uses creates callback props to pump actions to our store using a given <code>dispatch</code> function.</li>
+</ul>
+
+<p>If we recall, our application state consists of two properties: <code>languageName</code> and <code>enthusiasmLevel</code>.
+Our <code>Hello</code> component, on the other hand, expected a <code>name</code> and an <code>enthusiasmLevel</code>.
+<code>mapStateToProps</code> will get the relevant data from the store, and adjust it if necessary, for our component’s props.
+Let’s go ahead and write that.</p>
+
+<pre><code class="language-ts">export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
+  return {
+    enthusiasmLevel,
+    name: languageName,
+  }
+}
+</code></pre>
+
+<p>Note that <code>mapStateToProps</code> only creates 2 out of 4 of the properties a <code>Hello</code> component expects.
+Namely, we still want to pass in the <code>onIncrement</code> and <code>onDecrement</code> callbacks.
+<code>mapDispatchToProps</code> is a function that takes a dispatcher function.
+This dispatcher function can pass actions into our store to make updates, so we can create a pair of callbacks that will call the dispatcher as necessary.</p>
+
+<pre><code class="language-ts">export function mapDispatchToProps(dispatch: Dispatch&lt;actions.EnthusiasmAction&gt;) {
+  return {
+    onIncrement: () =&gt; dispatch(actions.incrementEnthusiasm()),
+    onDecrement: () =&gt; dispatch(actions.decrementEnthusiasm()),
+  }
+}
+</code></pre>
+
+<p>Finally, we’re ready to call <code>connect</code>.
+<code>connect</code> will first take <code>mapStateToProps</code> and <code>mapDispatchToProps</code>, and then return another function that we can use to wrap our component.
+Our resulting container is defined with the following line of code:</p>
+
+<pre><code class="language-ts">export default connect(mapStateToProps, mapDispatchToProps)(Hello);
+</code></pre>
+
+<p>When we’re finished, our file should look like this:</p>
+
+<pre><code class="language-ts">// src/containers/Hello.tsx
+
+import Hello from '../components/Hello';
+import * as actions from '../actions/';
+import { StoreState } from '../types/index';
+import { connect, Dispatch } from 'react-redux';
+
+export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
+  return {
+    enthusiasmLevel,
+    name: languageName,
+  }
+}
+
+export function mapDispatchToProps(dispatch: Dispatch&lt;actions.EnthusiasmAction&gt;) {
+  return {
+    onIncrement: () =&gt; dispatch(actions.incrementEnthusiasm()),
+    onDecrement: () =&gt; dispatch(actions.decrementEnthusiasm()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hello);
+</code></pre>
+    
+      <h2 id="creating-a-store">
+        
+        
+          Creating a store <a aria-label="Link to the header: Creating a store" title="Link to the header: Creating a store" href="#creating-a-store" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h2>
+
+<p>Let’s go back to <code>src/index.tsx</code>.
+To put this all together, we need to create a store with an initial state, and set it up with all of our reducers.</p>
+
+<pre><code class="language-ts">import { createStore } from 'redux';
+import { enthusiasm } from './reducers/index';
+import { StoreState } from './types/index';
+
+const store = createStore&lt;StoreState&gt;(enthusiasm, {
+  enthusiasmLevel: 1,
+  languageName: 'TypeScript',
+});
+</code></pre>
+
+<p><code>store</code> is, as you might’ve guessed, our central store for our application’s global state.</p>
+
+<p>Next, we’re going to swap our use of <code>./src/components/Hello</code> with <code>./src/containers/Hello</code> and use react-redux’s <code>Provider</code> to wire up our props with our container.
+We’ll import each:</p>
+
+<pre><code class="language-ts">import Hello from './containers/Hello';
+import { Provider } from 'react-redux';
+</code></pre>
+
+<p>and pass our <code>store</code> through to the <code>Provider</code>’s attributes:</p>
+
+<pre><code class="language-ts">ReactDOM.render(
+  &lt;Provider store={store}&gt;
+    &lt;Hello /&gt;
+  &lt;/Provider&gt;,
+  document.getElementById('root') as HTMLElement
+);
+</code></pre>
+
+<p>Notice that <code>Hello</code> no longer needs props, since we used our <code>connect</code> function to adapt our application’s state for our wrapped <code>Hello</code> component’s props.</p>
+    
+      <h1 id="ejecting">
+        
+        
+          Ejecting <a aria-label="Link to the header: Ejecting" title="Link to the header: Ejecting" href="#ejecting" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>If at any point, you feel like there are certain customizations that the create-react-app setup has made difficult, you can always opt-out and get the various configuration options you need.
+For example, if you’d like to add a Webpack plugin, it might be necessary to take advantage of the “eject” functionality that create-react-app provides.</p>
+
+<p>Simply run</p>
+
+<pre><code class="language-sh">npm run eject
+</code></pre>
+
+<p>and you should be good to go!</p>
+
+<p>As a heads up, you may want to commit all your work before running an eject.
+You cannot undo an eject command, so opting out is permanent unless you can recover from a commit prior to running an eject.</p>
+    
+      <h1 id="next-steps">
+        
+        
+          Next steps <a aria-label="Link to the header: Next steps" title="Link to the header: Next steps" href="#next-steps" class="anchor-hash" title="Link to this header">#</a>
+        
+        
+      </h1>
+
+<p>create-react-app comes with a lot of great stuff.
+Much of it is documented in the default <code>README.md</code> that was generated for our project, so give that a quick read.</p>
+
+<p>If you still want to learn more about Redux, you can <a href="http://redux.js.org/">check out the official website</a> for documentation.
+The same goes <a href="https://mobx.js.org/">for MobX</a>.</p>
+
+<p>If you want to eject at some point, you may need to know a little bit more about Webpack.
+You can check out our <a href="./react-&amp;-webpack.html">React &amp; Webpack walkthrough here</a>.</p>
+
+<p>At some point you might need routing.
+There are several solutions, but <a href="https://github.com/ReactTraining/react-router">react-router</a> is probably the most popular for Redux projects, and is often used in conjunction with <a href="https://github.com/reactjs/react-router-redux">react-router-redux</a>.</p>
+
+
+          </article>
+        </div>
+        </div>
+    </a>
+
+<script type="text/javascript">
+
+      $(function() {
+        //$(".tocAccordion").accordion();
+        setDocTOC();
+        hljs.initHighlightingOnLoad();
+      });
+
+</script>
+
+	</main>
+	<footer role="contentinfo">
+    <div class="container-fluid signature-container">
+        <div class="container">
+            <div class="row signature">
+                <div class="col-sm-7 col-xs-12">
+                    <p class="pull-left">Made with <span class="glyphicon glyphicon-heart"></span> in Redmond</p>
+                    <div class="twitter-buttons pull-left">
+                        <a class="twitter-follow-button" href="https://twitter.com/typescript/">Follow @typescript</a>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <img class="ms-logo-footer pull-right" src="/assets/images/Microsoft-logo_rgb_c-gray.svg" alt="Microsoft logo"/>
+                    <p class="copyright pull-right">&copy;2012-2020 Microsoft</p>
+                    <p class="privacy pull-right"><a href="https://go.microsoft.com/fwlink/?LinkId=521839" data-mscc-ic="false">Privacy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+<!-- JS -->
+<script src="/assets/js/libraries.5f479ded.js"></script>
+<!-- at the end of the BODY -->
+
+<script type="text/javascript">
+docsearch({
+  apiKey: '3c2db2aef0c7ff26e8911267474a9b2c',
+  indexName: 'typescriptlang',
+  inputSelector: '.site-search',
+  debug: true // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</html>
